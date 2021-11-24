@@ -1,0 +1,106 @@
+.title {
+    display: inline-block;
+}
+
+.title {
+    width: 200px;
+    font-size: 30pt;
+    font-weight: bolder;
+}
+
+body {
+    margin: 0px;
+}
+
+.main {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.left, .center, .right {
+    display: inline-block;
+    vertical-align: top;
+    height: 80vh;
+}
+
+.left {
+    border-right: 1px solid black;
+    width: 159px;
+}
+
+.lefttitle {
+    border-bottom: 1px solid black;
+    vertical-align: top;
+    text-align: center;
+}
+
+.leftlist {
+    border-bottom: 1px solid black;
+}
+
+.center {
+    border-right: 1px solid black;
+    position: absolute;
+    width: auto;
+    right: 160px;
+    left: 200px;
+    overflow-y: auto;
+}
+
+.centerheader {
+    font-size: 30pt;
+}
+
+.centeritem {
+    border: 1px solid black;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+.buybutton, .price {
+    text-align: center;
+}
+
+.center {
+    right: 0px;
+    border-right: none;
+}
+
+.topbar {
+    height: 100px;
+    border: 1px solid black;
+}
+
+.search1 {
+    padding-top: 10px;
+}
+
+@media screen and (min-width: 620px) {
+    .center {
+        right: 160px;
+        border-right: 1px solid black;
+    }
+
+    .search1 {
+        position: absolute;
+        right: 30px;
+        line-height: 50px;
+    }
+
+    .topbar {
+        height: 50px;   
+    }
+
+    .topnav, .search1 {
+        display: inline-block;
+    }
+}
