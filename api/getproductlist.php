@@ -3,9 +3,12 @@
     returns json array
     [
         {
-            "name": string,
+            "product_id": int,
+            "product_name": string,
             "price": int,
-            "imgurl": ["imgurl": string, ...]
+            "description": string,
+            "stock": int,
+            "imgurl": [{"imgurl": string}, ...]
         },
         ...
     ]
