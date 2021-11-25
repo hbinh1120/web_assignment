@@ -10,14 +10,14 @@
         "imgurl": [{"imgurl": string}, ...]
     }
     */
-    if (!isset($_GET["id"])) {
+    if (!isset($_GET["product_id"])) {
         header("HTTP/1.1 400 Bad Request");
         die();
     }
     include("database.php");
     $stmt = mysqli_stmt_init($dbc);
     mysqli_stmt_prepare($stmt, "SELECT * FROM product WHERE product_id=?");
-    mysqli_stmt_bind_param($stmt, "i", $_GET["id"]);
+    mysqli_stmt_bind_param($stmt, "i", $_GET["product_id"]);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     while ($row = mysqli_fetch_assoc($result)) {
