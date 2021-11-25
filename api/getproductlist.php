@@ -12,25 +12,49 @@
         },
         ...
     ]
+    if has parameter "category", returns only products of that category
     */
     include("database.php");
-    $productQuery = mysqli_query($dbc, "SELECT * FROM product");
-    $response = array();
-    while ($productRow = mysqli_fetch_assoc($productQuery)) {
-        $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $productRow["product_id"]);
-        $imgList = array();
-        while ($imgRow = mysqli_fetch_assoc($imgQuery)) {
-            $imgList[] = $imgRow;
+    if (!isset($_GET["category"])) {
+        $productQuery = mysqli_query($dbc, "SELECT * FROM product");
+        $response = array();
+        while ($productRow = mysqli_fetch_assoc($productQuery)) {
+            $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $productRow["product_id"]);
+            $imgList = array();
+            while ($imgRow = mysqli_fetch_assoc($imgQuery)) {
+                $imgList[] = $imgRow;
+            }
+            $productRow["imgurl"] = $imgList;
+            $response[] = $productRow;
         }
-        $productRow["imgurl"] = $imgList;
-        $response[] = $productRow;
-    }
-    if (mysqli_error($dbc) == "") {
-        header("HTTP/1.1 200 OK");
         echo json_encode($response);
+        mysqli_close($dbc);
     }
     else {
-        header("HTTP/1.1 500 Interal Server Error");
+        $stmt = mysqli_stmt_init($dbc);
+        $query = "
+            SELECT * FROM product
+            WHERE product.product_id IN (
+                SELECT product_id FROM has
+                WHERE category_name LIKE ?
+            )
+        ";
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "s", $_GET["category"]);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $response = array();
+        while ($productRow = mysqli_fetch_assoc($result)) {
+            $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $productRow["product_id"]);
+            $imgList = array();
+            while ($imgRow = mysqli_fetch_assoc($imgQuery)) {
+                $imgList[] = $imgRow;
+            }
+            $productRow["imgurl"] = $imgList;
+            $response[] = $productRow;
+        }
+        echo json_encode($response);
+        mysqli_close($dbc);
     }
-    mysqli_close($dbc);
+    header("HTTP/1.1 200 OK");
 ?>

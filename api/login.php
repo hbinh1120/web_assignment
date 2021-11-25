@@ -1,11 +1,14 @@
 <?php
     /*
     sets $_SESSION["username"] and $_SESSION["type"]
+    returns json object {"status": int}
+    1 for successful login, 0 for failure
     */
     session_start();
     $data = json_decode(file_get_contents('php://input'), true);
     if (!empty($data) || !isset($data["username"]) || !isset($data["password"])) {
         header("HTTP/1.1 400 Bad Request");
+        echo '{"status": 0}';
         die();
     }
     if (!isset($_SESSION["username"])) {
@@ -17,15 +20,15 @@
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($row = mysqli_fetch_assoc($result)) {
-            header("HTTP/1.1 200 OK");
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["type"] = $row["type"];
-            header("Location: product.html");
+            header("HTTP/1.1 200 OK");
+            echo '{"status": 1}';
             die();
         }
     }
     else {
-        header("Location: product.html");
+        echo '{"status": 0}';
         die();
     }
 ?>
