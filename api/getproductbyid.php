@@ -26,8 +26,6 @@
         mysqli_close($dbc);
         die();
     }
-    if (mysqli_error($dbc) != "") {
-        header("HTTP/1.1 500 Interal Server Error");
-    }
+    header("HTTP/1.1 404 Not Found");
     mysqli_close($dbc);
 ?>
