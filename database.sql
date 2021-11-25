@@ -60,11 +60,16 @@ CREATE TABLE cart (
 );
 
 INSERT INTO product (product_name, price, description, stock) VALUES
-    ('product1', 10, '', 10),
-    ('product1', 10, '', 10),
-    ('product1', 10, '', 10);
+    ('Lawnmower Extreme L2', 150, '', 100),
+    ('Vacuum Cleaner Extreme V3', 100, '', 57),
+    ('Lenova Prebuilt PC P20', 400, '', 30);
 
 INSERT INTO imgurl VALUES
     ('placeholder.png', 1),
     ('placeholder.png', 2),
     ('placeholder.png', 3);
+
+INSERT INTO user VALUES 
+    ('lad','LAD','weboe123','0256322788','2000-05-03',0),
+    ('hackerman1120','HACKERMAN','weboe123','0984372666','2000-11-20',1),
+    ('user','USER TEST','user','0123456789','2000-01-01',0);
