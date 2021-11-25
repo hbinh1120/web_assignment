@@ -25,12 +25,7 @@
         $productRow["imgurl"] = $imgList;
         $response[] = $productRow;
     }
-    if (mysqli_error($dbc) == "") {
-        header("HTTP/1.1 200 OK");
-        echo json_encode($response);
-    }
-    else {
-        header("HTTP/1.1 500 Interal Server Error");
-    }
+    header("HTTP/1.1 200 OK");
+    echo json_encode($response);
     mysqli_close($dbc);
 ?>
