@@ -21,7 +21,7 @@ function displayProductList(productList) {
         let buybutton = document.createElement("div");
         buybutton.classList.add("buybutton");
         let img = document.createElement("img");
-        img.src= element.imgurl;
+        img.src= element.imgurl[0]["imgurl"];
         img.alt = "";
         let button = document.createElement("input");
         button.type = "button";
