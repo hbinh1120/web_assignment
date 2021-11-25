@@ -15,10 +15,14 @@
         die();
     }
     include("database.php");
-    $productQuery = mysqli_query($dbc, "SELECT * FROM product WHERE product_id = " . $_GET["id"]);
-    while ($productRow = mysqli_fetch_assoc($productQuery)) {
+    $stmt = mysqli_stmt_init($dbc);
+    mysqli_stmt_prepare($stmt, "SELECT * FROM product WHERE product_id=?");
+    mysqli_stmt_bind_param($stmt, "i", $_GET["id"]);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    while ($row = mysqli_fetch_assoc($result)) {
         header("HTTP/1.1 200 OK");
-        echo json_encode($productRow);
+        echo json_encode($row);
         mysqli_close($dbc);
         die();
     }
