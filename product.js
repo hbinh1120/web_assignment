@@ -10,6 +10,18 @@ function getProductList() {
     xmlhttp.send();
 }
 
+function getProductListByCategory(category) {
+    let xmlhttp = new XMLHttpRequest();  
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //see api/getproductlist.php for response format
+            displayProductList(JSON.parse(this.responseText));
+        }
+    };
+    xmlhttp.open("GET", "api/getproductlist.php?category_name=" + category, true);
+    xmlhttp.send();
+}
+
 function displayProductList(productList) {
     let centerlist = document.getElementById("centerlist");
     productList.forEach(element => {
@@ -59,5 +71,3 @@ function displayProductList(productList) {
         centerlist.appendChild(centeritem);
     });
 }
-
-getProductList();

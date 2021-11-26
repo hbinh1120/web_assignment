@@ -17,7 +17,7 @@
     if has parameter "category", returns only products of that category
     */
     include("database.php");
-    if (!isset($_GET["category"])) {
+    if (!isset($_GET["category_name"])) {
         $productQuery = mysqli_query($dbc, "SELECT product.*, COALESCE(AVG(rating), 0) rating, COALESCE(COUNT(*), 0) review_count FROM product LEFT JOIN review ON review.product_id=product.product_id GROUP BY product.product_id");
         $response = array();
         while ($productRow = mysqli_fetch_assoc($productQuery)) {
@@ -45,7 +45,7 @@
             GROUP BY product.product_id
         ";
         mysqli_stmt_prepare($stmt, $query);
-        mysqli_stmt_bind_param($stmt, "s", $_GET["category"]);
+        mysqli_stmt_bind_param($stmt, "s", $_GET["category_name"]);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $response = array();

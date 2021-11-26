@@ -7,6 +7,6 @@
         unset($_SESSION["username"]);
         unset($_SESSION["type"]);
     }
-    header("Location: product.html");
+    header("Location: product.php");
     die();
 ?>
