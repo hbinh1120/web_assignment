@@ -8,7 +8,8 @@
         "description": string,
         "stock": int,
         "imgurl": [{"imgurl": string}, ...],
-        "rating": float
+        "rating": float,
+        "review_count": int
     }
     */
     if (!isset($_GET["product_id"])) {
@@ -18,7 +19,7 @@
     include("database.php");
     $stmt = mysqli_stmt_init($dbc);
     $query = "
-        SELECT product.*, COALESCE(AVG(rating), 0) rating
+        SELECT product.*, COALESCE(AVG(rating), 0) rating, COALESCE(COUNT(*), 0) review_count
         FROM product LEFT JOIN review
         ON review.product_id=product.product_id
         WHERE product.product_id=?
