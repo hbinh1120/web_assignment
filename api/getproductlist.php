@@ -18,7 +18,7 @@
     */
     include("database.php");
     if (!isset($_GET["category"])) {
-        $productQuery = mysqli_query($dbc, "SELECT * FROM product");
+        $productQuery = mysqli_query($dbc, "SELECT product.*, COALESCE(AVG(rating), 0) rating, COALESCE(COUNT(*), 0) review_count FROM product LEFT JOIN review ON review.product_id=product.product_id");
         $response = array();
         while ($productRow = mysqli_fetch_assoc($productQuery)) {
             $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $productRow["product_id"]);
