@@ -66,7 +66,12 @@ img {
     height: auto;
 }
 
-.buybutton, .price {
+.itemimage img{
+    width: 200px;
+    height: 200px;
+}
+
+.buybutton, .price, .itemname {
     text-align: center;
 }
 
