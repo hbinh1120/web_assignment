@@ -8,7 +8,8 @@
             "price": int,
             "description": string,
             "stock": int,
-            "imgurl": [{"imgurl": string}, ...]
+            "imgurl": [{"imgurl": string}, ...],
+            "rating": float
         },
         ...
     ]
@@ -33,7 +34,9 @@
     else {
         $stmt = mysqli_stmt_init($dbc);
         $query = "
-            SELECT * FROM product
+            SELECT product.*, COALESCE(AVG(rating), 0) rating
+            FROM product LEFT JOIN review
+            ON review.product_id=product.product_id
             WHERE product.product_id IN (
                 SELECT product_id FROM has
                 WHERE category_name LIKE ?
