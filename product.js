@@ -17,6 +17,10 @@ function displayProductList(productList) {
         centeritem.classList.add("centeritem");
         let itemimage = document.createElement("div");
         itemimage.classList.add("itemimage");
+        //LAD
+        let itemname = document.createElement("div");
+        itemname.classList.add("itemname");
+        //LAD
         let price = document.createElement("div");
         price.classList.add("price");
         let buybutton = document.createElement("div");
@@ -27,12 +31,26 @@ function displayProductList(productList) {
         let button = document.createElement("input");
         button.type = "button";
         button.value = "Buy now";
+        //LAD
+        let n_text = String(element.product_name);
+        let product_name = document.createTextNode(n_text);
+        
+        let p_text = String(element.price);
+        let product_price = document.createTextNode(p_text);
+
+        //LAD
         centeritem.appendChild(itemimage);
+        //LAD
+        centeritem.appendChild(itemname);
+        //LAD
         centeritem.appendChild(price);
         centeritem.appendChild(buybutton);
         itemimage.appendChild(img);
         buybutton.appendChild(button);
-
+        //LAD
+        itemname.appendChild(product_name);
+        price.appendChild(product_price);
+        //LAD
         centerlist.appendChild(centeritem);
     });
 }
