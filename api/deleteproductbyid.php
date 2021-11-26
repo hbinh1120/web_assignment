@@ -9,7 +9,7 @@
         die();
     }
     $data = json_decode(file_get_contents('php://input'), true);
-    if (!empty($data) || !isset($data["product_id"])) {
+    if (empty($data) || !isset($data["product_id"])) {
         header("HTTP/1.1 400 Bad Request");
         die();
     }

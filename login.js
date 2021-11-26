@@ -1,9 +1,9 @@
 
 function login() {
-    let name = document.getElementById("name");
+    let username = document.getElementById("username");
     let password = document.getElementById("password");
     let data = {
-        name: name.value,
+        username: username.value,
         password: password.value
     };
 
@@ -14,7 +14,7 @@ function login() {
             //do something
         }
     };
-    xmlhttp.open("POST", "login.php", true);
+    xmlhttp.open("POST", "api/login.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.send(JSON.stringify(data));
 }
