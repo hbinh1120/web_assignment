@@ -18,7 +18,7 @@
     */
     include("database.php");
     if (!isset($_GET["category"])) {
-        $productQuery = mysqli_query($dbc, "SELECT product.*, COALESCE(AVG(rating), 0) rating, COALESCE(COUNT(*), 0) review_count FROM product LEFT JOIN review ON review.product_id=product.product_id");
+        $productQuery = mysqli_query($dbc, "SELECT product.*, COALESCE(AVG(rating), 0) rating, COALESCE(COUNT(*), 0) review_count FROM product LEFT JOIN review ON review.product_id=product.product_id GROUP BY product.product_id");
         $response = array();
         while ($productRow = mysqli_fetch_assoc($productQuery)) {
             $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $productRow["product_id"]);
@@ -42,6 +42,7 @@
                 SELECT product_id FROM has
                 WHERE category_name LIKE ?
             )
+            GROUP BY product.product_id
         ";
         mysqli_stmt_prepare($stmt, $query);
         mysqli_stmt_bind_param($stmt, "s", $_GET["category"]);
