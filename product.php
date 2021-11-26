@@ -16,20 +16,22 @@
     <div class="main">
         <div class="left">
             <div class="lefttitle">Category</div>
-            <div class="leftlist">
-                Item 1 <br>
-                Item 2 <br>
-                Item 3 <br>
-                Item 4 <br>
-                Item 5 <br>
-            </div>
-            <div class="lefttitle">Product</div>
-            <div class="leftlist">
-                Item 1 <br>
-                Item 2 <br>
-                Item 3 <br>
-                Item 4 <br>
-                Item 5 <br>
+            <div class="leftlist" id="leftlist">
+                <?php
+                    include("api/database.php");
+                    $stmt = mysqli_stmt_init($dbc);
+                    mysqli_stmt_prepare($stmt, "SELECT * FROM category");
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $response = array();
+                    while ($productRow = mysqli_fetch_assoc($result)) {
+                        $response[] = $productRow;
+                    }
+                    mysqli_close($dbc);
+                    foreach ($response as $row) {
+                        echo '<a href="product.php?category_name=' . $row["category_name"] . '">' . $row["category_name"] . '<a><br>';
+                    }
+                ?>
             </div>
         </div><!--
 

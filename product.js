@@ -56,3 +56,4 @@ function displayProductList(productList) {
 }
 
 getProductList();
+getCategoryList();
