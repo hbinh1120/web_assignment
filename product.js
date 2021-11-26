@@ -32,6 +32,9 @@ function displayProductList(productList) {
         //LAD
         let itemname = document.createElement("div");
         itemname.classList.add("itemname");
+
+        let itemrating = document.createElement("div");
+        itemrating.classList.add("itemrating");
         //LAD
         let price = document.createElement("div");
         price.classList.add("price");
@@ -44,24 +47,26 @@ function displayProductList(productList) {
         button.type = "button";
         button.value = "Buy now";
         //LAD
-        let n_text = String(element.product_name);
-        let product_name = document.createTextNode(n_text);
-        
-        let p_text = String(element.price);
-        let product_price = document.createTextNode(p_text);
+        let product_name = document.createTextNode(element.product_name);
+        let product_price = document.createTextNode(element.price);
 
+        let product_rating = document.createTextNode(element.rating);
         //LAD
         centeritem.appendChild(itemimage);
         //LAD
         centeritem.appendChild(itemname);
         //LAD
         centeritem.appendChild(price);
+        //LAD
+        centeritem.appendChild(itemrating);
+        //LAD
         centeritem.appendChild(buybutton);
         itemimage.appendChild(img);
         buybutton.appendChild(button);
         //LAD
         itemname.appendChild(product_name);
         price.appendChild(product_price);
+        itemrating.appendChild(product_rating);
         //LAD
         centerlist.appendChild(centeritem);
     });

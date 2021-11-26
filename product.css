@@ -71,7 +71,7 @@ img {
     height: 200px;
 }
 
-.buybutton, .price, .itemname {
+.buybutton, .price, .itemname, .itemrating {
     text-align: center;
 }
 
