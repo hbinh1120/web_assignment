@@ -66,15 +66,15 @@ INSERT INTO product (product_name, price, description, stock) VALUES
     ('Car Porschal 913', 4000, '', 2);
 
 INSERT INTO imgurl VALUES
-    ('lawn_mower_extreme_l2-1.png', 1),
-    ('lawn_mower_extreme_l2-2.png', 1),
-    ('vacuum_cleaner_extreme_v3-1.png', 2),
-    ('vacuum_cleaner_extreme_v3-2.png', 2),
-    ('vacuum_cleaner_extreme_v3-3.png', 2),
-    ('prebuilt_pc_lenova_p20-1.png', 3),
-    ('prebuilt_pc_lenova_p20-2.png', 3),
-    ('car_porschal_913-1.png', 4),
-    ('car_porschal_913-2.png', 4);
+    ('img/lawn_mower_extreme_l2-1.png', 1),
+    ('img/lawn_mower_extreme_l2-2.png', 1),
+    ('img/vacuum_cleaner_extreme_v3-1.png', 2),
+    ('img/vacuum_cleaner_extreme_v3-2.png', 2),
+    ('img/vacuum_cleaner_extreme_v3-3.png', 2),
+    ('img/prebuilt_pc_lenova_p20-1.png', 3),
+    ('img/prebuilt_pc_lenova_p20-2.png', 3),
+    ('img/car_porschal_913-1.png', 4),
+    ('img/car_porschal_913-2.png', 4);
 
 INSERT INTO user VALUES 
     ('lad','LAD','weboe123','0256322788','2000-05-03',0),
