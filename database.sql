@@ -94,3 +94,7 @@ INSERT INTO has VALUES
     ('electronic',3),
     ('household',3),
     ('transportation',4);
+
+INSERT INTO review VALUES  
+    ('user',1,4.6,'pretty good'),
+    ('lad',1,2.6,'kinda meh');
