@@ -3,6 +3,7 @@
 }
 
 .title {
+    text-align: center;
     width: 200px;
     font-size: 30pt;
     font-weight: bolder;
@@ -86,26 +87,54 @@ img {
 }
 
 .search1 {
-    padding-top: 10px;
+    
 }
 
-@media screen and (min-width: 620px) {
+.search1 input{
+    height: 20px;
+    width: 300px;
+}
+
+.search1 button{
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.topnav{
+    top: 10px;
+    position:absolute;
+    right: 0px;
+    width: 20%;
+    text-align: right;
+}
+
+@media screen and (min-width: 720px) {
     .center {
         right: 160px;
         border-right: 1px solid black;
     }
 
     .search1 {
+        width: 60%;
         position: absolute;
-        right: 30px;
+        left: 200px;
         line-height: 50px;
+        margin-right: 12px;
     }
 
     .topbar {
         height: 50px;   
     }
 
+    
+
     .topnav, .search1 {
         display: inline-block;
+    }
+
+    .search1 input{
+        height: 30px;
+        width: 70%;
     }
 }
