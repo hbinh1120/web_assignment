@@ -1,9 +1,27 @@
+productListGlobal = [];
+
+const searchHandler = function(e) {
+    if (e.target.value == "") {
+        displayProductList(productListGlobal);
+        return;
+    }
+    let tempProductList = [];
+    productListGlobal.forEach(element => {
+        if (element.product_name.toUpperCase().indexOf(e.target.value.toUpperCase()) != -1) tempProductList.push(element);
+    });
+    displayProductList(tempProductList);
+}
+const search = document.getElementById("search");
+search.addEventListener("input", searchHandler);
+search.addEventListener("propertychange", searchHandler);
+
 function getProductList() {
     let xmlhttp = new XMLHttpRequest();  
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //see api/getproductlist.php for response format
-            displayProductList(JSON.parse(this.responseText));
+            productListGlobal = JSON.parse(this.responseText);
+            displayProductList(productListGlobal);
         }
     };
     xmlhttp.open("GET", "api/getproductlist.php", true);
@@ -15,7 +33,8 @@ function getProductListByCategory(category) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //see api/getproductlist.php for response format
-            displayProductList(JSON.parse(this.responseText));
+            productListGlobal = JSON.parse(this.responseText);
+            displayProductList(productListGlobal);
         }
     };
     xmlhttp.open("GET", "api/getproductlist.php?category_name=" + category, true);
@@ -51,11 +70,14 @@ function displayProduct(product) {
 }
 
 function displayReviewList(reviewList) {
-    
+
 }
 
 function displayProductList(productList) {
     let centerlist = document.getElementById("centerlist");
+    while (centerlist.firstChild) {
+        centerlist.removeChild(centerlist.firstChild);
+    }
     productList.forEach(element => {
         let centeritem = document.createElement("div");
         centeritem.classList.add("centeritem");

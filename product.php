@@ -9,7 +9,7 @@
 <body>
     <div class="topbar">
         <div class="title">Site Title</div><!--
-        --><div class="search1"><input type="text" placeholder="Search"><button>Search</button><button>Cart</button></div><!--
+        --><div class="search1"><input type="text" placeholder="Search" id="search"><button>Cart</button></div><!--
         --><div class="topnav"><a href="">About Us</a>|<a href="">Login</a></div>
     </div>
     
