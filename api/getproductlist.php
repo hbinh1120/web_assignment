@@ -15,6 +15,7 @@
         ...
     ]
     if has parameter "category", returns only products of that category
+    if has paramter "search", returns only products with
     */
     include("database.php");
     $response = array();
@@ -28,7 +29,7 @@
             GROUP BY product.product_id
         ";
         mysqli_stmt_prepare($stmt, $query);
-        mysqli_stmt_bind_param($stmt, "s", $_GET["search"]);
+        mysqli_stmt_bind_param($stmt, "s", "%" . $_GET["search"] . "%");
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($productRow = mysqli_fetch_assoc($result)) {
