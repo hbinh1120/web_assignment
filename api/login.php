@@ -19,7 +19,7 @@
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($row = mysqli_fetch_assoc($result)) {
-            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["username"] = $data["username"];
             $_SESSION["type"] = $row["type"];
             header("HTTP/1.1 200 OK");
             echo '{"status": 1}';
