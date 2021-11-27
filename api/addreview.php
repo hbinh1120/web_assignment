@@ -16,10 +16,7 @@
     include("database.php");
     $stmt = mysqli_stmt_init($dbc);
     mysqli_stmt_prepare($stmt, "INSERT INTO review VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "s", $_SESSION["username"]);
-    mysqli_stmt_bind_param($stmt, "i", $data["product_id"]);
-    mysqli_stmt_bind_param($stmt, "i", $data["rating"]);
-    mysqli_stmt_bind_param($stmt, "s", $data["comment"]);
+    mysqli_stmt_bind_param($stmt, "siis", $_SESSION["username"], $data["product_id"], $data["rating"], $data["comment"]);
     mysqli_stmt_execute($stmt);
     if (mysqli_error($dbc) == "") {
         header("HTTP/1.1 200 OK");

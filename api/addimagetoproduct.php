@@ -16,8 +16,7 @@
     include("database.php");
     $stmt = mysqli_stmt_init($dbc);
     mysqli_stmt_prepare($stmt, "INSERT INTO imgurl VALUES (?, ?)");
-    mysqli_stmt_bind_param($stmt, "s", $data["imgurl"]);
-    mysqli_stmt_bind_param($stmt, "i", $data["product_id"]);
+    mysqli_stmt_bind_param($stmt, "si", $data["imgurl"], $data["product_id"]);
     mysqli_stmt_execute($stmt);
     if (mysqli_error($dbc) == "") {
         header("HTTP/1.1 200 OK");
