@@ -12,6 +12,13 @@ function login() {
         if (this.readyState == 4 && this.status == 200) {
             //see api/login.php for response format
             //do something
+            /*let status = JSON.parse(this.responseText);
+            console.log(this.responseText);
+            if (status.status == 1)
+                window.location.replace("http://localhost/web_assignment/product.php");
+            else {
+
+            }*/
         }
     };
     xmlhttp.open("POST", "api/login.php", true);

@@ -109,6 +109,19 @@ img {
     text-align: right;
 }
 
+.loginform{
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.centercontainer{
+    margin: auto auto;
+    top: 45%;
+    position:relative;
+}
+
 @media screen and (min-width: 720px) {
     .center {
         right: 160px;
