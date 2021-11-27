@@ -85,4 +85,7 @@
         $productRow["imgurl"] = $imgList;
         $response[] = $productRow;
     }
+    header("HTTP/1.1 200 OK");
+    echo json_encode($response);
+    mysqli_close($dbc);
 ?>
