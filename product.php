@@ -9,8 +9,8 @@
 <body>
     <div class="topbar">
         <div class="title">Site Title</div><!--
-        --><div class="topnav"><a href="">Categories</a>|<a href="">Contact us</a>|<a href="">Follow us</a></div><!--
-        --><div class="search1"><input type="text" placeholder="Search"></div>
+        --><div class="search1"><input type="text" placeholder="Search"><button>Search</button><button>Cart</button></div><!--
+        --><div class="topnav"><a href="">About Us</a>|<a href="">Login</a></div>
     </div>
     
     <div class="main">
