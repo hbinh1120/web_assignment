@@ -25,8 +25,11 @@
             echo '{"status": 1}';
             die();
         }
+        header("HTTP/1.1 200 OK");
+        echo '{"status": 0}';
     }
     else {
+        header("HTTP/1.1 200 OK");
         echo '{"status": 0}';
         die();
     }
