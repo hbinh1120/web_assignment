@@ -45,7 +45,7 @@
 <script src="product.js"></script>
 <script>
     <?php
-        if (issert($_GET["product_id"])) {
+        if (isset($_GET["product_id"])) {
             echo 'getProductById("' . $_GET["product_id"] . '");';
             echo 'getReviewByProduct("' . $_GET["product_id"] . '");';
         }
