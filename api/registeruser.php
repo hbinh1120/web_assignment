@@ -11,8 +11,7 @@
     include("database.php");
     $stmt = mysqli_stmt_init($dbc);
     mysqli_stmt_prepare($stmt, "INSERT INTO user (username, password) VALUES (?, ?)");
-    mysqli_stmt_bind_param($stmt, "s", $data["username"]);
-    mysqli_stmt_bind_param($stmt, "s", $data["password"]);
+    mysqli_stmt_bind_param($stmt, "ss", $data["username"], $data["password"]);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     header("HTTP/1.1 200 OK");

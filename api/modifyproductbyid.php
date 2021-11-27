@@ -13,36 +13,34 @@
         header("HTTP/1.1 400 Bad Request");
         die();
     }
-    $query = "UPDATE product SET ";
-    $first = true;
     include("database.php");
     if (isset($data["product_name"])) {
-        if ($first) {
-            $first = false;
-            $query = $query . "product_name=?";
-        }
-        else $query = $query . ", product_name=?";
+        $query = "UPDATE product SET product_name=? WHERE product_id=?";
+        $stmt = mysqli_stmt_init($dbc);
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "si", $data["product_name"], $data["product_id"]);
+        mysqli_stmt_execute($stmt);
     }
     if (isset($data["price"])) {
-        if ($first) {
-            $first = false;
-            $query = $query . "price=?";
-        }
-        else $query = $query . ", price=?";
+        $query = "UPDATE product SET price=? WHERE product_id=?";
+        $stmt = mysqli_stmt_init($dbc);
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $data["price"], $data["product_id"]);
+        mysqli_stmt_execute($stmt);
     }
     if (isset($data["description"])) {
-        if ($first) {
-            $first = false;
-            $query = $query . "description=?";
-        }
-        else $query = $query . ", description=?";
+        $query = "UPDATE product SET description=? WHERE product_id=?";
+        $stmt = mysqli_stmt_init($dbc);
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "si", $data["description"], $data["product_id"]);
+        mysqli_stmt_execute($stmt);
     }
     if (isset($data["stock"])) {
-        if ($first) {
-            $first = false;
-            $query = $query . "stock=?";
-        }
-        else $query = $query . ", stock=?";
+        $query = "UPDATE product SET stock=? WHERE product_id=?";
+        $stmt = mysqli_stmt_init($dbc);
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $data["stock"], $data["product_id"]);
+        mysqli_stmt_execute($stmt);
     }
     if ($first) {
         header("HTTP/1.1 400 Bad Request");
@@ -50,14 +48,6 @@
     }
     $query = $query . " WHERE product_id=?";
 
-    $stmt = mysqli_stmt_init($dbc);
-    mysqli_stmt_prepare($stmt, $query);
-    if (isset($data["product_name"])) mysqli_stmt_bind_param($stmt, "s", $data["product_name"]);
-    if (isset($data["price"])) mysqli_stmt_bind_param($stmt, "i", $data["price"]);
-    if (isset($data["description"])) mysqli_stmt_bind_param($stmt, "s", $data["description"]);
-    if (isset($data["stock"])) mysqli_stmt_bind_param($stmt, "i", $data["stock"]);
-    mysqli_stmt_bind_param($stmt, "i", $data["product_id"]);
-    mysqli_stmt_execute($stmt);
 
     if (mysqli_error($dbc) == "") {
         header("HTTP/1.1 200 OK");
