@@ -45,7 +45,11 @@
 <script src="product.js"></script>
 <script>
     <?php
-        if (!isset($_GET["category_name"])) echo "getProductList();";
+        if (issert($_GET["product_id"])) {
+            echo 'getProductById("' . $_GET["product_id"] . '");';
+            echo 'getReviewByProduct("' . $_GET["product_id"] . '");';
+        }
+        else if (!isset($_GET["category_name"])) echo "getProductList();";
         else echo 'getProductListByCategory("' . $_GET["category_name"] . '");'
     ?>
 </script>

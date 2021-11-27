@@ -22,6 +22,38 @@ function getProductListByCategory(category) {
     xmlhttp.send();
 }
 
+function getProductById(product_id) {
+    let xmlhttp = new XMLHttpRequest();  
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //see api/getproductbyid.php for response format
+            displayProduct(JSON.parse(this.responseText));
+        }
+    };
+    xmlhttp.open("GET", "api/getproductbyid.php?product_id=" + product_id, true);
+    xmlhttp.send();
+}
+
+function getReviewByProduct(product_id) {
+    let xmlhttp = new XMLHttpRequest();  
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //see api/getreviewlist.php for response format
+            displayReviewList(JSON.parse(this.responseText));
+        }
+    };
+    xmlhttp.open("GET", "api/getreviewlist.php?product_id=" + product_id, true);
+    xmlhttp.send();
+}
+
+function displayProduct(product) {
+
+}
+
+function displayReviewList(reviewList) {
+    
+}
+
 function displayProductList(productList) {
     let centerlist = document.getElementById("centerlist");
     productList.forEach(element => {
