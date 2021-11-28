@@ -12,5 +12,12 @@ function getUserByUsername(username) {
 }
 
 function displayUser(user) {
-    
+    let username = document.getElementById("username");
+    username.innerHTML = user.username;
+    let name = document.getElementById("name");
+    name.innerHTML = user.name;
+    let phone = document.getElementById("phone");
+    phone.innerHTML = user.phone;
+    let bdate = document.getElementById("bdate");
+    bdate.innerHTML = user.bdate;
 }

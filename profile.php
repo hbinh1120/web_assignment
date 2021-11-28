@@ -49,10 +49,10 @@
                     <div class="mainimage" id="mainimage"></div>
                 </div>
                 <div class="detailright">
-                    <h2 class="detailname" id="detailname">Sample Product Title</h2>
-                    <div class="detailrating" id="detailrating"></div>
-                    <div class="detailstock" id="detailstock"></div>
-                    <input type="button" value="Buy now">
+                    <div class="username" id="username"></div>
+                    <div class="name" id="name"></div>
+                    <div class="phone" id="phone"></div>
+                    <div class="bdate" id="bdate"></div>
                 </div>
                 <div class="reviewlist" id="reviewlist"></div>
             </div>
