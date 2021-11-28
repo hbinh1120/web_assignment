@@ -45,7 +45,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $response[] = $row;
         }
-        echo json_encode($row);
+        echo json_encode($response);
         header("HTTP/1.1 200 OK");
         mysqli_close($dbc);
         die();
