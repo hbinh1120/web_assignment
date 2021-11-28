@@ -53,26 +53,28 @@
             </div>
             <div class="centerlist" id="centerlist" style="display:none;"></div>
             <div id="detailmain" style="display:none;" id="detailmain">
-                <div class="detailleft">
-                    <div class="mainimage" id="mainimage"></div>
-                    <div class="smallimagelist" id="smallimagelist"></div>
-                </div>
-                <div class="detailright">
-                    <h2 class="detailname" id="detailname">Sample Product Title</h2>
-                    <div class="detailrating" id="detailrating"></div>
-                    <div class="detaildescription" id="detaildescription">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                <div class="detailboth">
+                    <div class="detailleft">
+                        <div class="mainimage" id="mainimage"></div>
+                        <div class="smallimagelist" id="smallimagelist"></div>
                     </div>
-                    <div>
-                        <input type="button" id="buttonminus" value="-" onclick="decrement()">
-                        <span id="cartnumber">1</span>
-                        <input type="button" id="buttonplus" value="+" onclick="increment()">
+                    <div class="detailright">
+                        <h2 class="detailname" id="detailname">Sample Product Title</h2>
+                        <div class="detailrating" id="detailrating"></div>
+                        <div class="detaildescription" id="detaildescription">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        </div>
+                        <div>
+                            <input type="button" id="buttonminus" value="-" onclick="decrement()">
+                            <span id="cartnumber">1</span>
+                            <input type="button" id="buttonplus" value="+" onclick="increment()">
+                        </div>
+                        <div class="detailstock" id="detailstock"></div>
+                        <input type="button" value="Add to cart" onclick="addCart()">
                     </div>
-                    <div class="detailstock" id="detailstock"></div>
-                    <input type="button" value="Add to cart" onclick="addCart()">
                 </div>
                 <div class="makereview" <?php if (!isset($_SESSION["username"])) echo 'style="display:none;"' ?>>
                     Rating: 
