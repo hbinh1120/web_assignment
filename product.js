@@ -116,7 +116,19 @@ function displayProduct(product) {
     let detailname = document.getElementById("detailname");
     detailname.innerHTML = product.product_name;
     let detailrating = document.getElementById("detailrating");
-    detailrating.innerHTML = "Rating: " + product.rating;
+    detailrating.innerHTML ="Rating: "
+    //detailrating.innerHTML = "Rating: " + product.rating;
+
+    let f_rating = parseFloat(product.rating);
+    let i_rating = parseInt(f_rating);
+    for(let i = 0; i < i_rating; i++){
+        detailrating.innerHTML += "<img src=\"img/blackstar.png\" alt=\"\">";
+    }
+
+    if (f_rating - i_rating >= 0.5){
+        detailrating.innerHTML += "<img src=\"img/halflight.png\" alt=\"\">";
+    }
+
     let detaildescription = document.getElementById("detaildescription");
     detaildescription.innerHTML = product.description;
     let detailstock = document.getElementById("detailstock");
@@ -162,7 +174,27 @@ function displayReviewList(reviewList) {
         reviewcomment.classList.add("reviewcomment");
 
         reviewusername.innerHTML = element.username;
-        reviewrating.innerHTML = "Rating: " + element.rating;
+        //reviewrating.innerHTML = "Rating: " + element.rating;
+        reviewrating.innerHTML = "Rating: ";
+        let f_rating = parseFloat(element.rating);
+        let i_rating = parseInt(f_rating);
+        for(let i = 0; i < i_rating; i++){
+            reviewrating.innerHTML += "<img src=\"img/blackstar.png\" alt=\"\">";
+        }
+
+        if (f_rating - i_rating >= 0.5){
+            reviewrating.innerHTML += "<img src=\"img/halflight.png\" alt=\"\">";
+        }
+        /*let f_rating = parseFloat(product.rating);
+        let i_rating = parseInt(f_rating);
+        for(let i = 0; i < i_rating; i++){
+            detailrating.innerHTML += "<img src=\"img/blackstar.png\" alt=\"\">";
+        }
+
+        if (f_rating - i_rating >= 0.5){
+            detailrating.innerHTML += "<img src=\"img/halflight.png\" alt=\"\">";
+        }*/
+
         reviewcomment.innerHTML = element.comment;
 
         //LAD
@@ -224,7 +256,7 @@ function displayProductList(productList) {
             itemrating.appendChild(star_img);
         }
 
-        if(f_rating - i_rating > 0.5){
+        if(f_rating - i_rating >= 0.5){
             let star_img = document.createElement("img");
             star_img.src = "img/halflight.png";
             star_img.alt = "";

@@ -265,6 +265,17 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.detailrating img{
+    width: 20px;
+    height: 20px;
+}
+
+.reviewrating img{
+    width: 12px;
+    height: 12px;
+}
+
 @media screen and (min-width: 720px) {
     .center {
         right: 160px;
