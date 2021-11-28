@@ -82,10 +82,17 @@ function displayProduct(product) {
 
     let smallimagelist = document.getElementById("smallimagelist");
     product.imgurl.forEach(element => {
+        //LAD
+        let smallimg = document.createElement("div");
+        smallimg.classList.add("smallimg");
+        //LAD
         let smallimage = document.createElement("img");
         smallimage.src = element.imgurl;
         smallimage.alt="";
-        smallimagelist.appendChild(smallimage);
+        //LAD
+        smallimg.appendChild(smallimage);
+        //LAD
+        smallimagelist.appendChild(smallimg);
     });
     let mainimage = document.createElement("img");
     mainimage.src = product.imgurl[0]["imgurl"];
