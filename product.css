@@ -38,6 +38,8 @@ body {
 
 .leftlist {
     border-bottom: 1px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .center {
@@ -84,6 +86,18 @@ img {
 .topbar {
     height: 100px;
     border: 1px solid black;
+    background-color: rgb(26,148,255);
+    color: white;
+}
+
+.topbar a{
+    color: white;
+}
+
+.cart{
+    background-image: url(img/cart.png);
+    background-size:cover;
+    width: 50px;
 }
 
 .search1 {
@@ -128,9 +142,10 @@ img {
 }
 
 .detailleft{
-    width: 40%;
+    width: 300px;
     display: inline-block;
     height: 350px;
+    margin-bottom: 20px;
 }
 
 .profileleft{
@@ -160,6 +175,7 @@ img {
     display: inline-block;
     vertical-align: top;
     height: 350px;
+    margin-bottom: 20px;
 }
 
 .smallimagelist{
