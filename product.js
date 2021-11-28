@@ -245,7 +245,7 @@ function displayProductList(productList) {
         img.alt = "";
         //LAD
         let product_name = document.createTextNode(element.product_name);
-        let product_price = document.createTextNode(element.price);
+        let product_price = document.createTextNode(element.price + "$");
         let f_rating = parseFloat(element.rating);
         let i_rating = parseInt(f_rating);
 

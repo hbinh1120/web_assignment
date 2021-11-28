@@ -33,6 +33,7 @@ body {
 }
 
 .lefttitle {
+    padding: 5px 0px;
     border-bottom: 1px solid black;
     vertical-align: top;
     text-align: center;
