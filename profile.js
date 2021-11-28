@@ -55,7 +55,18 @@ function displayReviewList(reviewList) {
         reviewcomment.classList.add("reviewcomment");
 
         reviewusername.innerHTML = element.username;
-        reviewrating.innerHTML = "Rating: " + element.rating;
+        //reviewrating.innerHTML = "Rating: " + element.rating;
+        reviewrating.innerHTML = "Rating: ";
+        let f_rating = parseFloat(element.rating);
+        let i_rating = parseInt(f_rating);
+        for(let i = 0; i < i_rating; i++){
+            reviewrating.innerHTML += "<img src=\"img/blackstar.png\" alt=\"\">";
+        }
+
+        if (f_rating - i_rating >= 0.5){
+            reviewrating.innerHTML += "<img src=\"img/halflight.png\" alt=\"\">";
+        }
+
         reviewcomment.innerHTML = element.comment;
 
         //LAD
