@@ -66,6 +66,30 @@ function getReviewByProduct(product_id) {
     xmlhttp.send();
 }
 
+function increment() {
+    let cartnumber = document.getElementById("cartnumber");
+    cartnumber.innerHTML = parseInt(cartnumber.innerHTML) + 1;
+}
+
+function decrement() {
+    let cartnumber = document.getElementById("cartnumber");
+    if (parseInt(cartnumber.innerHTML) > 1) 
+        cartnumber.innerHTML = parseInt(cartnumber.innerHTML) - 1;
+}
+
+function addCart() {
+    let cartnumber = document.getElementById("cartnumber").innerHTML;
+    let product_id = document.getElementById("product_id");
+    let data = {
+        number: cartnumber,
+        product_id: product_id.value
+    };
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "api/addreview.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(data))
+}
+
 function makeReview() {
     let username = document.getElementById("username");
     let product_id = document.getElementById("product_id");

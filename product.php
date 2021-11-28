@@ -66,8 +66,13 @@
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     </div>
+                    <div>
+                        <input type="button" id="buttonminus" value="-" onclick="decrement()">
+                        <span id="cartnumber">1</span>
+                        <input type="button" id="buttonplus" value="+" onclick="increment()">
+                    </div>
                     <div class="detailstock" id="detailstock"></div>
-                    <input type="button" value="Buy now">
+                    <input type="button" value="Add to cart" onclick="addCart()">
                 </div>
                 <div class="makereview" <?php if (!isset($_SESSION["username"])) echo 'style="display:none;"' ?>>
                     Rating: 
