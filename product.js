@@ -94,14 +94,28 @@ function displayProduct(product) {
 }
 
 function displayReviewList(reviewList) {
+    let reviewlist = document.getElementById("reviewlist");
+    while (reviewlist.firstChild) reviewlist.removeChild(reviewlist.firstChild);
+    reviewList.forEach(element => {
+        let reviewcontainer = document.createElement("div");
+        reviewcontainer.classList.add("reviewcontainer");
+        let reviewusername = document.createElement("div");
+        reviewusername.classList.add("reviewusername");
+        let reviewrating = document.createElement("div");
+        reviewrating.classList.add("reviewrating");
+        let reviewcomment = document.createElement("div");
+        reviewcomment.classList.add("reviewcomment");
 
+        reviewcontainer.appendChild(reviewusername);
+        reviewcontainer.appendChild(reviewrating);
+        reviewcontainer.appendChild(reviewcomment);
+        reviewlist.appendChild(reviewcontainer);
+    });
 }
 
 function displayProductList(productList) {
     let centerlist = document.getElementById("centerlist");
-    while (centerlist.firstChild) {
-        centerlist.removeChild(centerlist.firstChild);
-    }
+    while (centerlist.firstChild) centerlist.removeChild(centerlist.firstChild);
     centerlist.style.display = "block";
     productList.forEach(element => {
         let centeritem = document.createElement("div");
