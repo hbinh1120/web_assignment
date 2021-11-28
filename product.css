@@ -167,6 +167,32 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.reviewcontainer{
+    width: 800px;
+    height: 70px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.userimg{
+    margin-right: 2%;
+    height: 100%;
+    width: 10%;
+    display:inline-block;
+}
+
+.userimg img{
+    width: 100%;
+    height: 100%;
+}
+
+.reviewinfo{
+    margin-top: 5px;
+    width: 80%;
+    display: inline-block;
+    vertical-align: top;
+}
 @media screen and (min-width: 720px) {
     .center {
         right: 160px;
