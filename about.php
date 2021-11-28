@@ -45,34 +45,11 @@
         </div><!--
 
         --><div class="center">
-            <div class="centerheader" id="centerheader">
-                Profile
-            </div>
-            <div id="detailmain" id="detailmain">
-                <div class="profileleft">
-                    <div class="profileimage" id="profileimage">
-                        <img src="img/user.png" alt="">
-                    </div>
-                </div>
-                <div class="profileright">
-                    <div class="username" id="username"></div>
-                    <div class="name" id="name"></div>
-                    <div class="phone" id="phone"></div>
-                    <div class="bdate" id="bdate"></div>
-                    <div class="editbutton"><input type="button" value="Edit" onclick="window.location='profileedit.php';"></div>
-                </div>
-                <div class="reviewlist" id="reviewlist"></div>
-            </div>
+            <h1>About Us</h1>
+            <p>
+                In order to provide you the most comfortable experience, we - The Weboe have created this website so that all the quality products here can be purchased at the most suitable price.
+            </p>
         </div>
     </div>
 </body>
-<script src="profile.js"></script>
-<script>
-    <?php
-        if (isset($_GET["username"])) {
-            echo 'getUserByUsername("' . $_GET["username"] . '");';
-            echo 'getReviewByUsername("' . $_GET["username"] . '");';
-        }
-    ?>
-</script>
 </html>
