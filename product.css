@@ -127,6 +127,39 @@ img {
     display:none;
 }
 
+.detailleft{
+    width: 40%;
+    display: inline-block;
+    height: 250px;
+}
+
+.mainimage{
+    width: auto;
+    height: 75%;
+}
+
+.mainimage img{
+    width: 100%;
+    height: 100%;
+}
+
+.detailright{
+    display: inline-block;
+    vertical-align: top;
+    height: 350px;
+}
+
+.smallimagelist{
+    margin-top: 5%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.smallimagelist img{
+    width: 20%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
 @media screen and (min-width: 720px) {
     .center {
         right: 160px;
