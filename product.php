@@ -13,7 +13,7 @@
         <div class="title" onclick="window.location='product.php';">Site Title</div><!--
         --><div class="search1"><input type="text" placeholder="Search" id="search"><button onclick="window.location='cart.php';">Cart</button></div><!--
         --><div class="topnav"><a href="about.php">About Us</a>|<?php
-        if (!isset($_SESSION["username"])) echo '<a href="login.html">Login</a>';
+        if (!isset($_SESSION["username"])) echo '<a href="login.php">Login</a>';
         else {
             echo '<a href="profile.php?username=' . $_SESSION["username"] . '">Profile</a>|';
             echo '<a href="api/logout.php">Logout</a>';
