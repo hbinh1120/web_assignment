@@ -46,6 +46,7 @@ function getProductById(product_id) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //see api/getproductbyid.php for response format
+            console.log(this.responseText);
             displayProduct(JSON.parse(this.responseText));
         }
     };
@@ -66,7 +67,30 @@ function getReviewByProduct(product_id) {
 }
 
 function displayProduct(product) {
+    let centerheader = document.getElementById("centerheader");
+    centerheader.style.display = "none";
+    let detailmain = document.getElementById("detailmain");
+    detailmain.style.display = "block";
+    let detailname = document.getElementById("detailname");
+    detailname.innerHTML = product.product_name;
+    let detailrating = document.getElementById("detailrating");
+    detailrating.innerHTML = "Rating: " + product.rating;
+    let detaildescription = document.getElementById("detaildescription");
+    detaildescription.innerHTML = product.description;
+    let detailstock = document.getElementById("detailstock");
+    detailstock.innerHTML = product.stock + " in stock";
 
+    let smallimagelist = document.getElementById("smallimagelist");
+    product.imgurl.forEach(element => {
+        let smallimage = document.createElement("img");
+        smallimage.src = element.imgurl;
+        smallimage.alt="";
+        smallimagelist.appendChild(smallimage);
+    });
+    let mainimage = document.createElement("img");
+    mainimage.src = product.imgurl[0]["imgurl"];
+    mainimage.alt="";
+    document.getElementById("mainimage").appendChild(mainimage);
 }
 
 function displayReviewList(reviewList) {
@@ -78,9 +102,13 @@ function displayProductList(productList) {
     while (centerlist.firstChild) {
         centerlist.removeChild(centerlist.firstChild);
     }
+    centerlist.style.display = "block";
     productList.forEach(element => {
         let centeritem = document.createElement("div");
         centeritem.classList.add("centeritem");
+        centeritem.onclick = function() {
+            location.href = "/assignment/product.php?product_id=" + element.product_id;
+        }
         let itemimage = document.createElement("div");
         itemimage.classList.add("itemimage");
         //LAD
@@ -92,14 +120,9 @@ function displayProductList(productList) {
         //LAD
         let price = document.createElement("div");
         price.classList.add("price");
-        let buybutton = document.createElement("div");
-        buybutton.classList.add("buybutton");
         let img = document.createElement("img");
         img.src= element.imgurl[0]["imgurl"];
         img.alt = "";
-        let button = document.createElement("input");
-        button.type = "button";
-        button.value = "Buy now";
         //LAD
         let product_name = document.createTextNode(element.product_name);
         let product_price = document.createTextNode(element.price);
@@ -114,9 +137,7 @@ function displayProductList(productList) {
         //LAD
         centeritem.appendChild(itemrating);
         //LAD
-        centeritem.appendChild(buybutton);
         itemimage.appendChild(img);
-        buybutton.appendChild(button);
         //LAD
         itemname.appendChild(product_name);
         price.appendChild(product_price);

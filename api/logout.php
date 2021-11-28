@@ -3,10 +3,10 @@
     unsets $_SESSION["username"] and $_SESSION["type"]
     */
     session_start();
-    if (!isset($_SESSION["username"])) {
+    if (isset($_SESSION["username"])) {
         unset($_SESSION["username"]);
         unset($_SESSION["type"]);
     }
-    header("Location: product.php");
+    header("Location: ../product.php");
     die();
 ?>

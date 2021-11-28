@@ -30,11 +30,15 @@
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     while ($row = mysqli_fetch_assoc($result)) {
+        $imgQuery = mysqli_query($dbc, "SELECT * FROM imgurl WHERE product_id LIKE " . $row["product_id"]);
+        $imgList = array();
+        while ($imgRow = mysqli_fetch_assoc($imgQuery)) {
+            $imgList[] = $imgRow;
+        }
+        $row["imgurl"] = $imgList;
         header("HTTP/1.1 200 OK");
         echo json_encode($row);
         mysqli_close($dbc);
         die();
     }
-    header("HTTP/1.1 404 Not Found");
-    mysqli_close($dbc);
 ?>

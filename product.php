@@ -5,12 +5,17 @@
     <title>Product Listing</title>
     <link rel="stylesheet" href="product.css">
 </head>
-
+<?php
+    session_start();
+?>
 <body>
     <div class="topbar">
-        <div class="title">Site Title</div><!--
+        <div class="title" onclick="window.location='product.php';">Site Title</div><!--
         --><div class="search1"><input type="text" placeholder="Search" id="search"><button>Cart</button></div><!--
-        --><div class="topnav"><a href="">About Us</a>|<a href="">Login</a></div>
+        --><div class="topnav"><a href="">About Us</a>|<?php
+        if (!isset($_SESSION["username"])) echo '<a href="login.html">Login</a></div>';
+        else echo '<a href="api/logout.php">Logout</a></div>';
+        ?>
     </div>
     
     <div class="main">
@@ -36,8 +41,31 @@
         </div><!--
 
         --><div class="center">
-            <div class="centerheader">Top Products</div>
-            <div class="centerlist" id="centerlist">
+            <div class="centerheader" id="centerheader">
+                <?php
+                    if (isset($_GET["category_name"])) echo "Products in category " . $_GET["category_name"];
+                    else echo "All products"
+                ?>
+            </div>
+            <div class="centerlist" id="centerlist" style="display:none;"></div>
+            <div id="detailmain" style="display:none;" id="detailmain">
+                <div class="detailleft">
+                    <div class="mainimage" id="mainimage"></div>
+                    <div class="smallimagelist" id="smallimagelist"></div>
+                </div>
+                <div class="detailright">
+                    <h2 class="detailname" id="detailname">Sample Product Title</h2>
+                    <div class="detailrating" id="detailrating"></div>
+                    <div class="detaildescription" id="detaildescription">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </div>
+                    <div class="detailstock" id="detailstock"></div>
+                    <input type="button" value="Buy now">
+                </div>
+                <div class="reviewlist" id="reviewlist"></div>
             </div>
         </div>
     </div>
