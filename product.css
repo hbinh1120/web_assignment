@@ -302,6 +302,24 @@ img {
     height: 12px;
 }
 
+table {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: white;
+}
+
+td, th {
+    width: 300px;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
 @media screen and (min-width: 720px) {
     /*.center {
         right: 160px;
