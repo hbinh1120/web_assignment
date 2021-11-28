@@ -65,7 +65,7 @@
                     <div class="detailstock" id="detailstock"></div>
                     <input type="button" value="Buy now">
                 </div>
-                <div class="makereview">
+                <div class="makereview" <?php if (!isset($_SESSION["username"])) echo 'style="display:none;"' ?>>
                     Rating: 
                     <input type="radio" name="rating" value="1"> 1
                     <input type="radio" name="rating" value="2"> 2
