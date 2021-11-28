@@ -7,7 +7,7 @@
 </head>
 <?php
     session_start();
-    if (!isset($_SESSION["username"])) header("Location: /product.php");
+    if (!isset($_SESSION["username"])) header("Location: assignment/product.php");
 ?>
 <body>
     <div class="topbar">
@@ -51,6 +51,7 @@
                     <th>Product</th>
                     <th>Number</th>
                     <th>Price</th>
+                    <th></th>
                 </tr>
                 <?php
                     include("api/database.php");
@@ -74,6 +75,7 @@
                             echo '<td>' . $cartitem["product_name"] . '</td>';
                             echo '<td>' . $cartitem["number"] . '</td>';
                             echo '<td>' . $cartitem["number"] * $cartitem["price"] . '</td>';
+                            echo '<td><input type="button" value="x" onclick="remove(\'' . $cartitem["product_id"] . '\')"></td>';
 
                             echo '</tr>';
                         }
