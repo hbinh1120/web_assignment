@@ -7,6 +7,7 @@
 </head>
 <?php
     session_start();
+    if (!isset($_SESSION["username"])) header("Location: /product.php");
 ?>
 <body>
     <div class="topbar">
@@ -45,34 +46,42 @@
         </div><!--
 
         --><div class="center">
-            <div class="centerheader" id="centerheader">
-                Profile
-            </div>
-            <div id="detailmain" id="detailmain">
-                <div class="profileleft">
-                    <div class="profileimage" id="profileimage">
-                        <img src="img/user.png" alt="">
-                    </div>
-                </div>
-                <div class="profileright">
-                    <div class="username" id="username"></div>
-                    <div class="name" id="name"></div>
-                    <div class="phone" id="phone"></div>
-                    <div class="bdate" id="bdate"></div>
-                    <div class="editbutton"><input type="button" value="Edit" onclick="window.location='profileedit.php';"></div>
-                </div>
-                <div class="reviewlist" id="reviewlist"></div>
+            <table class="cart" id="cart">
+                <tr>
+                    <th>Product</th>
+                    <th>Number</th>
+                    <th>Price</th>
+                </tr>
+                <?php
+                    include("api/database.php");
+                    $stmt = mysqli_stmt_init($dbc);
+                    $query = "
+                        SELECT * FROM cart JOIN product ON cart.product_id=product.product_id WHERE username LIKE ?
+                    ";
+                    mysqli_stmt_prepare($stmt, $query);
+                    mysqli_stmt_bind_param($stmt, "s", $_SESSION["username"]);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $cart = array();
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $cart[] = $row;
+                    }
+
+                    foreach ($cart as $cartitem) {
+                        if ($cartitem["number"] != 0) {
+                            echo '<tr>';
+
+                            echo '<td>' . $cartitem["product_name"] . '</td>';
+                            echo '<td>' . $cartitem["number"] . '</td>';
+                            echo '<td>' . $cartitem["number"] * $cartitem["price"] . '</td>';
+
+                            echo '</tr>';
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
 </body>
-<script src="profile.js"></script>
-<script>
-    <?php
-        if (isset($_GET["username"])) {
-            echo 'getUserByUsername("' . $_GET["username"] . '");';
-            echo 'getReviewByUsername("' . $_GET["username"] . '");';
-        }
-    ?>
-</script>
+<script src="cart.js"></script>
 </html>
