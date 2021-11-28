@@ -129,6 +129,9 @@ function displayProduct(product) {
         detailrating.innerHTML += "<img src=\"img/halflight.png\" alt=\"\">";
     }
 
+    let price = document.getElementById("price");
+    price.innerHTML = "Price: " + product.price + "$";
+
     let detaildescription = document.getElementById("detaildescription");
     detaildescription.innerHTML = product.description;
     let detailstock = document.getElementById("detailstock");
