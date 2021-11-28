@@ -85,7 +85,7 @@ function addCart() {
         product_id: product_id.value
     };
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "api/addreview.php", true);
+    xmlhttp.open("POST", "api/addcart.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.send(JSON.stringify(data))
 }

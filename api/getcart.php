@@ -11,7 +11,7 @@
             SELECT * FROM cart JOIN product ON cart.product_id=product.product_id WHERE username LIKE ?
         ";
         mysqli_stmt_prepare($stmt, $query);
-        mysqli_stmt_bind_param($stmt, "s", $_GET["username"]);
+        mysqli_stmt_bind_param($stmt, "s", $_SESSION["username"]);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $response = array();
@@ -23,5 +23,5 @@
         mysqli_close($dbc);
         die();
     }
-    header("HTTP/1.1 400 Bad Request");
+    header("HTTP/1.1 403 Forbidden");
 ?>
