@@ -106,6 +106,10 @@ function displayReviewList(reviewList) {
         let reviewcomment = document.createElement("div");
         reviewcomment.classList.add("reviewcomment");
 
+        reviewusername.innerHTML = element.username;
+        reviewrating.innerHTML = "Rating: " + element.rating;
+        reviewcomment.innerHTML = element.comment;
+
         reviewcontainer.appendChild(reviewusername);
         reviewcontainer.appendChild(reviewrating);
         reviewcontainer.appendChild(reviewcomment);
