@@ -72,6 +72,10 @@
                     <input type="radio" name="rating" value="3"> 3
                     <input type="radio" name="rating" value="4"> 4
                     <input type="radio" name="rating" value="5"> 5
+                    <?php
+                        if (isset($_GET["product_id"])) echo '<input type="hidden" id="product_id" value="' . $_GET["product_id"] . '">';
+                        if (isset($_SESSION["username"])) echo '<input type="hidden" id="username" value="' . $_SESSION["username"] . '">';
+                    ?>
                     <br>
                     <textarea id="comment"></textarea>
                     <br>

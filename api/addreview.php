@@ -4,7 +4,7 @@
     must be logged in
     */
     session_start();
-    if (!isset($_SESSION["type"]) || $_SESSION["type"] != 1) {
+    if (!isset($_SESSION["username"])) {
         header("HTTP/1.1 403 Forbidden");
         die();
     }

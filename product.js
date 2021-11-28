@@ -66,6 +66,24 @@ function getReviewByProduct(product_id) {
     xmlhttp.send();
 }
 
+function makeReview() {
+    let username = document.getElementById("username");
+    let product_id = document.getElementById("product_id");
+    let comment = document.getElementById("comment");
+    let rating = document.querySelector('input[name="rating"]:checked').value;
+    let data = {
+        username: username.value,
+        comment: comment.value,
+        product_id: product_id.value,
+        rating: rating
+    };
+
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "api/addreview.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(data));
+}
+
 function displayProduct(product) {
     let centerheader = document.getElementById("centerheader");
     centerheader.style.display = "none";
