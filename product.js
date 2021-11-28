@@ -225,7 +225,10 @@ function displayProductList(productList) {
         }
 
         if(f_rating - i_rating > 0.5){
-            
+            let star_img = document.createElement("img");
+            star_img.src = "img/halflight.png";
+            star_img.alt = "";
+            itemrating.appendChild(star_img);
         }
         //let product_rating = document.createTextNode(element.rating);
         //LAD
