@@ -56,22 +56,23 @@
                 </div>
                 <div class="profileright">
                     <div class="username" id="username"></div>
-                    <div class="name" id="name"></div>
-                    <div class="phone" id="phone"></div>
-                    <div class="bdate" id="bdate"></div>
-                    <div class="editbutton"><input type="button" value="Edit" onclick="window.location='profileedit.php';"></div>
+                    <div class="password">Password: <input type="password" id="password"></div>
+                    <div class="name">Full name: <input type="text" id="name"></div>
+                    <div class="phone">Phone number: <input type="text" id="phone"></div>
+                    <div class="bdate">Date of birth: <input type="text" id="bdate"></div>
+                    <?php
+                        if (isset($_SESSION["username"])) echo '<input type="button" onclick="update(\'' . $_SESSION["username"] . '\')" value="Save">'
+                    ?>
                 </div>
-                <div class="reviewlist" id="reviewlist"></div>
             </div>
         </div>
     </div>
 </body>
-<script src="profile.js"></script>
+<script src="profileedit.js"></script>
 <script>
     <?php
-        if (isset($_GET["username"])) {
-            echo 'getUserByUsername("' . $_GET["username"] . '");';
-            echo 'getReviewByUsername("' . $_GET["username"] . '");';
+        if (isset($_SESSION["username"])) {
+            echo 'getUserByUsername("' . $_SESSION["username"] . '");';
         }
     ?>
 </script>

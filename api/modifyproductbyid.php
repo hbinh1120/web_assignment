@@ -42,12 +42,6 @@
         mysqli_stmt_bind_param($stmt, "ii", $data["stock"], $data["product_id"]);
         mysqli_stmt_execute($stmt);
     }
-    if ($first) {
-        header("HTTP/1.1 400 Bad Request");
-        die();
-    }
-    $query = $query . " WHERE product_id=?";
-
 
     if (mysqli_error($dbc) == "") {
         header("HTTP/1.1 200 OK");
@@ -55,5 +49,4 @@
     else {
         header("HTTP/1.1 500 Interal Server Error");
     }
-    die();
 ?>
