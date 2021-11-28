@@ -79,3 +79,22 @@ function update(product_id) {
     xmlhttp.send(JSON.stringify(data));
     window.location = "product.php?product_id=" + product_id;
 }
+
+function add() {
+    let product_name = document.getElementById("detailname");
+    let detaildescription = document.getElementById("detaildescription");
+    let price = document.getElementById("price");
+    let detailstock = document.getElementById("detailstock");
+    let data = {
+        product_name: product_name.value,
+        description: detaildescription.value,
+        price: price.value,
+        stock: detailstock.value
+    };
+
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "api/addproduct.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(data));
+    //window.location = "product.php";
+}

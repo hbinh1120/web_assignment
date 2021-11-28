@@ -244,7 +244,8 @@ function displayProductList(productList) {
         let price = document.createElement("div");
         price.classList.add("price");
         let img = document.createElement("img");
-        img.src= element.imgurl[0]["imgurl"];
+        if (element.imgurl.length > 0)
+            img.src= element.imgurl[0]["imgurl"];
         img.alt = "";
         //LAD
         let product_name = document.createTextNode(element.product_name);

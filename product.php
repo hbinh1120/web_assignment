@@ -48,7 +48,10 @@
             <div class="centerheader" id="centerheader">
                 <?php
                     if (isset($_GET["category_name"])) echo "Products in category " . $_GET["category_name"];
-                    else echo "All products"
+                    else if (isset($_GET["product_id"])) echo "Product detail";
+                    else echo "All products";
+                    if (isset($_SESSION["type"]) && $_SESSION["type"] == 1 && !isset($_GET["product_id"]))
+                        echo '<input type="button" value="Add new" onclick="window.location=\'productadd.php\';">'
                 ?>
             </div>
             <div class="centerlist" id="centerlist" style="display:none;"></div>

@@ -47,7 +47,7 @@
 
         --><div class="center">
             <div class="centerheader" id="centerheader">
-                Editing product
+                Add a new product
             </div>
             <div id="detailmain" id="detailmain">
                 <div class="detailboth">
@@ -62,10 +62,7 @@
                         </div>
                         <div>Price: <input type="text" id="price"></div>
                         <div class="detailstock">Stock: <input type="text" id="detailstock"></div>
-                        
-                        <?php
-                            echo '<input type="button" onclick="update(\'' . $_GET["product_id"] . '\')" value="Save">'
-                        ?>
+                        <input type="button" onclick="add()" value="Add">
                     </div>
                 </div>
             </div>
@@ -73,11 +70,4 @@
     </div>
 </body>
 <script src="productedit.js"></script>
-<script>
-    <?php
-        if (isset($_GET["product_id"])) {
-            echo 'getProductById("' . $_GET["product_id"] . '");';
-        }
-    ?>
-</script>
 </html>
