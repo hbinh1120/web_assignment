@@ -214,8 +214,20 @@ function displayProductList(productList) {
         //LAD
         let product_name = document.createTextNode(element.product_name);
         let product_price = document.createTextNode(element.price);
+        let f_rating = parseFloat(element.rating);
+        let i_rating = parseInt(f_rating);
 
-        let product_rating = document.createTextNode(element.rating);
+        for(let i = 0; i < i_rating; i++){
+            let star_img = document.createElement("img");
+            star_img.src = "img/blackstar.png";
+            star_img.alt = "";
+            itemrating.appendChild(star_img);
+        }
+
+        if(f_rating - i_rating > 0.5){
+            
+        }
+        //let product_rating = document.createTextNode(element.rating);
         //LAD
         centeritem.appendChild(itemimage);
         //LAD
@@ -223,13 +235,14 @@ function displayProductList(productList) {
         //LAD
         centeritem.appendChild(price);
         //LAD
+        
         centeritem.appendChild(itemrating);
         //LAD
         itemimage.appendChild(img);
         //LAD
         itemname.appendChild(product_name);
         price.appendChild(product_price);
-        itemrating.appendChild(product_rating);
+        //itemrating.appendChild(product_rating);
         //LAD
         centerlist.appendChild(centeritem);
     });

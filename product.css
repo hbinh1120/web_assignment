@@ -70,6 +70,7 @@ body {
 }
 
 .centeritem {
+    vertical-align: top;
     /*border: 1px solid black;*/
     display: inline-block;
     margin-right: 20px;
@@ -94,6 +95,14 @@ img {
     height: 200px;
 }
 
+.itemrating{
+    height: 18px;
+}
+
+.itemrating img{
+    width: 10px;
+    height: 10px;
+}
 .buybutton, .price, .itemname, .itemrating {
     text-align: center;
 }
