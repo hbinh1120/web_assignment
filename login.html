@@ -44,17 +44,24 @@
             <div class="centercontainer" id="centercontainer">
                 <div class="loginform">
                     <form>
-                        Username: 
-                        <br>
-                        <input type="text" id="username">
-                        <br>
-                        Password: 
-                        <br>
-                        <input type="password" id="password">
-                        <br>
-                        <input type="button" value="login" onclick="login()">
-                        <br>
-                        <span class="wronglogin" id="wronglogin">Wrong username or password</span>
+                        <div class="logintitle">
+                            LOGIN
+                        </div>
+                        <div class="loginmain">
+                            Username: 
+                            <br>
+                            <input type="text" id="username">
+                            <br>
+                            Password: 
+                            <br>
+                            <input type="password" id="password">
+                            <br>
+                            <div style="margin: 10px auto 0px auto; width: fit-content;">
+                                <input type="button" value="login" onclick="login()">
+                            </div>
+                            <br>
+                            <span class="wronglogin" id="wronglogin">Wrong username or password</span>      
+                        </div>
                     </form>
                 </div>
             </div>

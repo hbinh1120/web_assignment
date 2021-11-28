@@ -158,14 +158,28 @@ img {
 
 .loginform{
     width: fit-content;
-    padding: 10px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin: auto;
+    /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;*/
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.logintitle{
+    padding:10px;
+    width: auto;
+    height: 20px;
+    color:white;
+    background-color: rgb(13,92,182);
+}
+
+.loginmain{
+    padding: 10px;
+    background-color: white;
 }
 
 .centercontainer{
     margin: auto auto;
-    top: 45%;
+    top: 35%;
     position:relative;
 }
 
