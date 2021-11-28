@@ -44,7 +44,7 @@
             <div class="centerheader" id="centerheader">
                 Profile
             </div>
-            <div id="detailmain" style="display:none;" id="detailmain">
+            <div id="detailmain" id="detailmain">
                 <div class="detailleft">
                     <div class="mainimage" id="mainimage"></div>
                 </div>

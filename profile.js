@@ -20,7 +20,7 @@ function getReviewByUsername(username) {
             displayReviewList(JSON.parse(this.responseText));
         }
     };
-    xmlhttp.open("GET", "api/getproductlist.php?username=" + username, true);
+    xmlhttp.open("GET", "api/getreviewlist.php?username=" + username, true);
     xmlhttp.send();
 }
 

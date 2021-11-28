@@ -35,10 +35,10 @@
         include("database.php");
         $stmt = mysqli_stmt_init($dbc);
         $query = "
-            SELECT * FROM review WHERE username=?
+            SELECT * FROM review WHERE username LIKE ?
         ";
         mysqli_stmt_prepare($stmt, $query);
-        mysqli_stmt_bind_param($stmt, "i", $_GET["username"]);
+        mysqli_stmt_bind_param($stmt, "s", $_GET["username"]);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $response = array();
