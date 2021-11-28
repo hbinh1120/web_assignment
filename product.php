@@ -65,6 +65,18 @@
                     <div class="detailstock" id="detailstock"></div>
                     <input type="button" value="Buy now">
                 </div>
+                <div class="makereview" <?php if (!isset($_SESSION["username"])) echo 'style="display:none;"' ?>>
+                    Rating: 
+                    <input type="radio" name="rating" value="1"> 1
+                    <input type="radio" name="rating" value="2"> 2
+                    <input type="radio" name="rating" value="3"> 3
+                    <input type="radio" name="rating" value="4"> 4
+                    <input type="radio" name="rating" value="5"> 5
+                    <br>
+                    <textarea id="comment"></textarea>
+                    <br>
+                    <input type="button" id="postreview" value="Post review" onclick="makeReview()">
+                </div>
                 <div class="reviewlist" id="reviewlist"></div>
             </div>
         </div>
