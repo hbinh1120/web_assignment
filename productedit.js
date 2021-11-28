@@ -80,6 +80,18 @@ function update(product_id) {
     window.location = "product.php?product_id=" + product_id;
 }
 
+function remove(product_id) {
+    let data = {
+        product_id: product_id
+    };
+
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "api/deleteproductbyid.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(data));
+    window.location = "product.php";
+}
+
 function add() {
     let product_name = document.getElementById("detailname");
     let detaildescription = document.getElementById("detaildescription");

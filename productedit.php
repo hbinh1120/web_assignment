@@ -64,7 +64,8 @@
                         <div class="detailstock">Stock: <input type="text" id="detailstock"></div>
                         
                         <?php
-                            echo '<input type="button" onclick="update(\'' . $_GET["product_id"] . '\')" value="Save">'
+                            echo '<input type="button" onclick="update(\'' . $_GET["product_id"] . '\')" value="Save">';
+                            echo '<input type="button" onclick="remove(\'' . $_GET["product_id"] . '\')" value="Delete">';
                         ?>
                     </div>
                 </div>
