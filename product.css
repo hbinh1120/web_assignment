@@ -130,7 +130,20 @@ img {
 .detailleft{
     width: 40%;
     display: inline-block;
-    height: 250px;
+    height: 350px;
+}
+
+.profileleft{
+    margin-right: 15px;
+    width: 150px;
+    display: inline-block;
+    height: 350px;
+}
+
+.profileright{
+    display: inline-block;
+    vertical-align: top;
+    height: 350px;
 }
 
 .mainimage{
@@ -192,6 +205,17 @@ img {
     width: 80%;
     display: inline-block;
     vertical-align: top;
+}
+
+.profileimage{
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+.profileimage img{
+    width: 100%;
+    height: 100%;
 }
 @media screen and (min-width: 720px) {
     .center {

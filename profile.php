@@ -49,10 +49,12 @@
                 Profile
             </div>
             <div id="detailmain" id="detailmain">
-                <div class="detailleft">
-                    <div class="mainimage" id="mainimage"></div>
+                <div class="profileleft">
+                    <div class="profileimage" id="profileimage">
+                        <img src="img/user.png" alt="">
+                    </div>
                 </div>
-                <div class="detailright">
+                <div class="profileright">
                     <div class="username" id="username"></div>
                     <div class="name" id="name"></div>
                     <div class="phone" id="phone"></div>

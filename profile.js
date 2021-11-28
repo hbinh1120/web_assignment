@@ -26,13 +26,13 @@ function getReviewByUsername(username) {
 
 function displayUser(user) {
     let username = document.getElementById("username");
-    username.innerHTML = user.username;
+    username.innerHTML = "Username: " + user.username;
     let name = document.getElementById("name");
-    name.innerHTML = user.name;
+    name.innerHTML = "Full name: " + user.name;
     let phone = document.getElementById("phone");
-    phone.innerHTML = user.phone;
+    phone.innerHTML = "Phone number: " + user.phone;
     let bdate = document.getElementById("bdate");
-    bdate.innerHTML = user.bdate;
+    bdate.innerHTML = "Date of birth: " + user.bdate;
 }
 
 function displayReviewList(reviewList) {
