@@ -59,6 +59,9 @@
                         <div class="smallimagelist" id="smallimagelist"></div>
                     </div>
                     <div class="detailright">
+                        <?php
+                            if (isset($_SESSION["type"]) && $_SESSION["type"] == 1) echo '<input type="button" value="Edit" onclick="window.location=\'productedit.php?product_id= ' . $_GET["product_id"] . '\'">'
+                        ?>
                         <h2 class="detailname" id="detailname">Sample Product Title</h2>
                         <div class="detailrating" id="detailrating"></div>
                         <div class="detaildescription" id="detaildescription">
