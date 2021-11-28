@@ -95,9 +95,9 @@ img {
 }
 
 .cart{
-    background-image: url(img/cart.png);
+    /*background-image: url(img/cart.png);
     background-size:cover;
-    width: 50px;
+    width: 50px;*/
 }
 
 .search1 {
