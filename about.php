@@ -11,7 +11,7 @@
 <body>
     <div class="topbar">
         <div class="title" onclick="window.location='product.php';">Weboe</div><!--
-        --><div class="search1"><input type="text" placeholder="Search" id="search"><button>Cart</button></div><!--
+        --><div class="search1"><input type="text" placeholder="Search" id="search"><button></button></div><!--
         --><div class="topnav"><a href="about.php">About Us</a>|<?php
         if (!isset($_SESSION["username"])) echo '<a href="login.php">Login</a>';
         else {
