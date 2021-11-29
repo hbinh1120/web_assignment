@@ -7,7 +7,7 @@
 </head>
 <?php
     session_start();
-    if (!isset($_SESSION["username"])) header("Location: assignment/product.php");
+    if (!isset($_SESSION["username"])) header("Location: /assignment/product.php");
 ?>
 <body>
     <div class="topbar">
