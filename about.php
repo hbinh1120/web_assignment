@@ -49,6 +49,9 @@
             <p>
                 In order to provide you the most comfortable experience, we - The Weboe have created this website so that all the quality products here can be purchased at the most suitable price.
             </p>
+            <p>
+                Contact info: binh.do1120@hcmut.edu.vn
+            </p>
         </div>
     </div>
 </body>

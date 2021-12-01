@@ -61,6 +61,8 @@
                     </div>
                     <br>
                     <span class="wronglogin" id="wronglogin">Wrong username or password</span>      
+                    <br>
+                    <a href="register.php">Don't have an account? Register</a>
                 </div>
             </form>
         </div>
