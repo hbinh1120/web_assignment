@@ -15,4 +15,5 @@
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     header("HTTP/1.1 200 OK");
+    header("Location: ../login.php")
 ?>

@@ -20,7 +20,7 @@
 <html lang="en-us">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product Listing</title>
+    <title>Register</title>
     <link rel="stylesheet" href="product.css">
 </head>
 <?php
@@ -45,7 +45,7 @@
         <div class="loginform">
             <form>
                 <div class="logintitle">
-                    LOGIN
+                    REGISTER
                 </div>
                 <div class="loginmain">
                     Username: 
@@ -57,14 +57,12 @@
                     <input type="password" id="password">
                     <br>
                     <div style="margin: 10px auto 0px auto; width: fit-content;">
-                        <input type="button" value="Login" onclick="login()">
+                        <input type="button" value="Register" onclick="register()">
                     </div>
-                    <br>
-                    <span class="wronglogin" id="wronglogin">Wrong username or password</span>      
                 </div>
             </form>
         </div>
     </div>
 </body>
-<script src="login.js"></script>
+<script src="register.js"></script>
 </html>
