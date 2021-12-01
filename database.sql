@@ -14,7 +14,7 @@ CREATE TABLE imgurl (
     imgurl VARCHAR(255),
     product_id INT,
     PRIMARY KEY (imgurl, product_id),
-    FOREIGN KEY (product_id) REFERENCES product(product_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE
 );
 
 CREATE TABLE user (
@@ -39,14 +39,14 @@ CREATE TABLE review (
     comment TEXT,
     PRIMARY KEY (username, product_id),
     FOREIGN KEY (username) REFERENCES user(username),
-    FOREIGN KEY (product_id) REFERENCES product(product_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE
 );
 
 CREATE TABLE has (
     category_name VARCHAR(255),
     product_id INT,
     PRIMARY KEY (category_name, product_id),
-    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE,
     FOREIGN KEY (category_name) REFERENCES category(category_name)
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE cart (
     product_id INT,
     PRIMARY KEY (username, product_id),
     FOREIGN KEY (username) REFERENCES user(username),
-    FOREIGN KEY (product_id) REFERENCES product(product_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE
 );
 
 INSERT INTO product (product_name, price, description, stock) VALUES
